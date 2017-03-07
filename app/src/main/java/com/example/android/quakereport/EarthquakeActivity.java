@@ -39,7 +39,7 @@ public class EarthquakeActivity extends AppCompatActivity {
         setContentView(R.layout.earthquake_activity);
 
         EarthquakeAsyncTask earthquakeAsyncTask = new EarthquakeAsyncTask();
-        earthquakeAsyncTask.execute("http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10");
+        earthquakeAsyncTask.execute("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=");
 
     }
 
@@ -60,7 +60,7 @@ public class EarthquakeActivity extends AppCompatActivity {
                 returnList = QueryUtils.extractEarthquakes(jsonResponse);
 
             } catch (Exception e){
-                Log.d("MAINACTIVITY ASYNCTASK","ERROR");
+                e.printStackTrace();
             }
             if(returnList != null){
                 return returnList;
